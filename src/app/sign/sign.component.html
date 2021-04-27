@@ -10,7 +10,7 @@
       />
   
     <link rel="stylesheet" href="sign.component.css" />
-    <title>KHELIFI</title>
+    <title>WEB</title>
   </head>
   <body>
     <div [class]="animation">
@@ -21,35 +21,40 @@
             <img class="avatar" src="assets/img/avatar3.jpg" alt="">
 
             <h2 class="title">Sign in</h2>
-            <div class="input-field">
+            <div class="input-field0">
               <i class="fas fa-user"></i>
-              <input #Username (click)="recupererid(Username)" type="text" placeholder="Username"   />
+              <input  type="text" placeholder="Username" />
             </div>
-            <div class="input-field">
+            <div class="input-field0">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password"/><br><br>
               <a href="#forgot-pw" class="forgot-pw"><br>Forgot Password?</a><br><br>
 
             </div>
-            <div id="forgot-pw" >
+            <div id="forgot-pw">
               <form action="" [class]="dynamique">
                 <a href="#" class="close">&times;</a>
                 <h2>Reset Password</h2>
-                <div class="input-group" >
-                  <input  #Username (change)="recupererid(Username)"  name="email" id="email"  >
-                  <label for="email">Email</label><br><br>
-                  <input    type="qst" name="qst" id="qst"  >
-                  <label for="qst">Code Secret </label>
+                <div class="input-group">
+                  <input type="email" name="email" id="email" required >
+                  <label for="email">Email</label>
                 </div>
-            
+                  <div class="input-group10">
+
+                  <input  type="code" name="code" id="code" required>
+                   <label class="code" for="code">Code Secret</label>
+                </div><br><br><br><br>
+                
+
                 <button (click)="modifierClasse()">
                   <i class="spinner"></i>
                   <span class="state">{{Confirmer}}</span>
                   <h1><br>{{bien}}</h1>
                 </button>
-              </form> 
-            <br><br>
-          </div>
+              
+               
+              </form>
+            </div>
         
         
 <br><br>
@@ -78,7 +83,7 @@
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Username" required/>
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
@@ -89,25 +94,23 @@
               <input type="password" placeholder="Password" />
             </div>
             <div class="input-field">
-                <i class="fas fa-address"></i>
+                <i class="fas fa-home"></i>
                 <input type="email" placeholder="Address" />
               </div>
+              <div class="input-field">
+                <i class="fas fa-birthday-cake"></i>
+                <input type="date" placeholder="Birthday" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-suitcase"></i>
+                <input type="email" placeholder="Work" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-graduation-cap"></i>
+                <input type="email" placeholder="Education" />
+              </div>
             <input type="submit" class="btn" value="Sign up" />
-            <p class="social-text">Or Sign up with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
+            
           </form>
         </div>
       </div>
@@ -119,7 +122,9 @@
 
             <div class="text-typing">
               <p> <strong>See what's happening in the &nbsp;</strong></p>       
-              <p> <strong> World Right Now!&nbsp;</strong></p>       
+            
+              <p *ngIf="ok"> <strong>world right Now ! &nbsp;</strong></p>       
+    
 
             </div>
             <br>
@@ -127,7 +132,7 @@
               Sign up
             </button>
           </div>
-          <img src="../../assets/img/log.svg" class="image" alt="" />
+       
   
         </div>
         <div class="panel right-panel">
@@ -136,12 +141,14 @@
 
             <div class="text-typing">
               <p> <strong>See what's happening in the &nbsp;</strong></p>       
-              <p> <strong> World Right Now!&nbsp;</strong></p>  </div>     
+            
+              <p *ngIf="ok"> <strong>world right Now ! &nbsp;</strong></p>        
+                </div>     
             <button  (click)='move()' class="btn transparent" id="sign-in-btn">
               Sign in
             </button>
           </div>
-          <img src="../../assets/img/register.svg" class="image" alt="" />
+          
         </div>
       </div>
     </div>

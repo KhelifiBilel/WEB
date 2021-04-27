@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign.component.css']
 })
 export class SignComponent implements OnInit {
+   offset="";
 
    movee(){  this.animation="container sign-up-mode"; 
             }
@@ -23,11 +24,12 @@ export class SignComponent implements OnInit {
 
    let x= setTimeout(()=>{
       this.dynamique="form loading ok";
-      this.bien="Bienvenue "+this.username;
-    },3000);}
+      this.bien="Bienvenue ";
+    },4000);}
   
-  constructor() {  }
-   
+  constructor() {     let y=setTimeout(()=>{this.ok=true},2000);
+}
+   ok=false;
   username="";
   recupererid(input){console.log(input.value);
     this.username=input.value;}
