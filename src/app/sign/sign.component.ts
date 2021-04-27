@@ -17,7 +17,9 @@ export class SignComponent implements OnInit {
   dynamique="form";
   Confirmer="Confirmer";
   bien="";
- 
+  forgot_pass=false;
+  forgot() {this.forgot_pass=true;}
+  signin(){this.forgot_pass=false;}
   modifierClasse(){    this.dynamique="form loading";
   this.Confirmer="";
   this.bien="Récupération en cours";
