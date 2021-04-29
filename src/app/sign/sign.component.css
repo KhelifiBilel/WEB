@@ -31,7 +31,7 @@ input {
 }
 
 body {
-  background: url('img/bg16.jpg');
+  background: url('./../../assets/img/bg16.jpg');
   background-size: cover;
   font-family: sans-serif;
 }
@@ -95,7 +95,7 @@ form.sign-in-form {
   width:100%;
   background-color: #f0f0f0;
   margin: 10px 0;
-  height: 45px;
+  height: 50px;
   border-radius: 55px;
   display: grid;
   grid-template-columns: 15% 85%;
@@ -107,7 +107,7 @@ form.sign-in-form {
   width:100%;
   background-color: #f0f0f0;
   margin: 10px 0;
-  height: 55px;
+  height: 50px;
   border-radius: 55px;
   display: grid;
   grid-template-columns: 15% 85%;
@@ -463,6 +463,7 @@ form.sign-in-form {
   font-family: sans-serif;
   border-radius:50px;
 }
+
 .text-typing p {  font-size:25px;
 
   margin: 0px;
@@ -470,7 +471,8 @@ form.sign-in-form {
   overflow:hidden;
   animation:typing 2s steps(22,end) forwards,
   blink 0s infinite;
-}.offset {  font-size:25px;
+}
+.offset {  font-size:25px;
 
   margin: 0px;
   white-space:nowrap;
