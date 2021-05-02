@@ -1,0 +1,100 @@
+<head> 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+  <section>
+    <div class="gap gray-bg">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row" id="page-contents">
+              <div class="col-lg-3">
+
+              </div><!-- sidebar -->
+              <div class="col-lg-6">
+                <div class="central-meta">
+                  <div class="frnds">
+                    <ul class="nav nav-tabs">
+                      <li class="nav-item"><a class="active" href="#frends" data-toggle="tab">Followers</a> <span>{{followers.size}}</span></li>
+                      <li class="nav-item"><a class="" href="#frends-req" data-toggle="tab">Following</a><span>{{followings.size}}</span></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div  class="tab-content">
+                      <div class="tab-pane active fade show " id="frends" >
+                        <ul class="nearby-contct">
+                          <li *ngFor="let username of followers.keys()">
+                            <div  class="nearly-pepls">
+                              <figure>
+                                <a href="time-line.html" title=""><img [src]="followers.get(username)" alt=""></a>
+                              </figure>
+                              <div  class="pepl-info">
+                                <h4><a href="time-line.html" title="">{{username}}</a></h4>
+                               
+                                <button  *ngIf="f_u.get(username)"
+                                 (click)="remove(username)" 
+                                  title="" class="button fa-push-left" data-ripple=""><span>{{Unfollow}}</span>
+                                </button>
+                                 <button  *ngIf="!f_u.get(username)"
+                                 (click)="add(username)" 
+                                  title="" class="button fa-push-right"  data-ripple=""><span>{{Follow}}</span>
+                                 </button>
+                                 
+                               
+                               
+                              
+                              
+                           
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                        
+                          </li>
+                        </ul>
+
+                        
+                        <div class="lodmore"><button 
+                          class="btn-view btn-load-more"></button></div>
+ 
+  
+  
+                        
+                      </div>
+
+
+
+                      <div class="tab-pane fade" id="frends-req" >
+                        <ul class="nearby-contct">
+                          <li *ngFor="let username of followings.keys()">
+                            <div class="nearly-pepls">
+                              <figure>
+                                <a href="time-line.html" title=""><img [src]="followings.get(username)" alt=""></a>
+                              </figure>
+                              <div class="pepl-info">
+                                <h4><a href="time-line.html" title="">{{username}}</a></h4>
+                                <span>ftv model</span>
+                                <button  
+                                (click)="remove(username)" 
+                                 title="" class="button"  data-ripple=""><span>{{Unfollow}}</span>
+                                </button>  
+                              </div>
+                            </div>
+                          </li>
+
+                        </ul>
+                        <div class="lodmore"><button class="btn-view btn-load-more"></button></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- centerl meta -->
+              <div class="col-lg-3">
+
+              </div><!-- sidebar -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
