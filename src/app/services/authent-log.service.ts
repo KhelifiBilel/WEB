@@ -32,22 +32,22 @@ signup(email,name,pwd){
   this.http.get(    
     "http://guinea-pig.ddns.net:5000/api/add/user?"+
     "username="+this.name+"&password="+this.pwd+"&email="+this.email).subscribe();
-
+    alert(this.name  +" : Your are registred");
 }
-   getuser(){return this.u}//pour oussema
+   getuser():User{return this.u}//pour oussema
 
    public _url:string="";
                      
   u;  
   constructor(private http:HttpClient,private router:Router) {}
-    getUser():Observable<Iusers>   {
+    getUser():Observable<User>   {
 this.http.get(this._url).toPromise().then(data=>{
   this.u=data;
   if (this.u.success){ this.exist();}
   else  this.invalid();
   
   })  
-            return this.http.get<Iusers>(this._url);
+            return this.http.get<User>(this._url);
 
 }
 }  
