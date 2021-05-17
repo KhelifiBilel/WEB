@@ -1,0 +1,118 @@
+<!--<div class="se-pre-con"></div>-->
+<div class="theme-layout">
+
+  <section>
+    <div class="gap gray-bg">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row" id="page-contents">
+              <div class="col-lFg-3">
+              </div><!-- sidebar -->
+              <div class="col-lg-6">
+                <div class="loadMore">
+                  <div *ngFor="let post of this.interact.posts" 
+                        class="central-meta item">
+                    <div class="user-post">
+                      <div class="friend-info">
+                        <figure>
+                          <img [src]="post.userIconURL" alt="">
+                        </figure>
+                        <div class="friend-name">
+                          <ins><a title=""> {{ post.userName }} </a></ins>
+                          <span>published: {{ post.postDate }}</span>
+                        </div>
+                        <div class="post-meta">
+                          <img [src]=post.postImgURL alt="">
+                          <div class="description">
+                            <p>
+                              {{ post.postText }}
+                            </p>
+                          </div>
+                          <div class="we-video-info">
+                            <ul>
+                              <li *ngIf="post.liked; then liked else notLiked "> </li>
+                              <ng-template #liked>
+                                <li>
+                                  <span class="like" data-toggle="tooltip" title="like">
+																    <i (click)="this.interact.pressHeart(post);this.load.removeLike(post.postID);" class="far fa-heart"></i>
+																    <ins>{{ post.likesCount }}</ins>
+                                  </span>
+                                </li>
+                              </ng-template>
+                              <ng-template #notLiked>
+                                <li>
+                                  <span class="dislike" data-toggle="tooltip" title="like">
+																    <i (click)="this.interact.pressHeart(post);this.load.addLike(post.postID);" class="far fa-heart"></i>
+																    <ins>{{ post.likesCount }}</ins>
+                                  </span>
+                                </li>
+                              </ng-template>
+
+                              <li>
+															  <span class="comment" data-toggle="tooltip"
+                                 title="Comments">
+																  <i class="far fa-comments"></i>
+																  <ins> {{ post.comments.length }}</ins>
+															  </span>
+                              </li>
+                            </ul>
+                          </div>
+
+                        </div>
+                      </div>
+                      <div class="coment-area">
+                        <ul class="we-comet">
+                          <li *ngFor="let comment of post.comments" >
+                            <div class="comet-avatar">
+                              <img width="45" height="45"  
+                              [src]="comment[3]" alt="">
+                            </div>
+                            <div class="we-comment">
+                              <div class="coment-head">
+                                <h5><a href="" title=""> {{ comment[0] }}</a></h5>
+                                <span> {{ comment[2] }} </span>
+                              </div>
+                              <p> {{ comment[1] }}</p>
+                            </div>
+
+                          </li>
+
+                          <li>
+                            <a href="" title="" class="showmore underline">more comments</a>
+                          </li>
+
+                          <li class="post-comment">
+                            <div class="comet-avatar">
+                              <img [src]="" alt="">
+                            </div>
+                            <div class="post-comt-box">
+                              <form method="post">
+                               <textarea [(ngModel)]="post.commentArea" 
+                               (keyup.enter)="this.load.addComment(post); 
+                               this.interact.putComment(post);" name="comment-text" 
+                                placeholder="Post your comment">
+                                 <button   type="submit"></button>
+                               </textarea>
+                              </form>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- centerl meta -->
+              <div class="col-lg-3">
+                <aside class="sidebar static">
+                </aside>
+              </div><!-- sidebar -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+

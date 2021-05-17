@@ -1,0 +1,11 @@
+[
+    {   "cover":"assets/img/avatar3.jpg",
+        "icon":"assets/img/avatar3.jpg",
+        "id":1,
+        "profile_picture":"assets/img/avatar3.jpg",
+        "secret_hash": "a470c77422e0abfb993f93283af232e0f73444b1d894c2a9833b2003e8424ade", 
+        "secret_user": "f33900ce-7ccc-4f67-aafd-79da385f1057", 
+        "success":true,
+        "username":"AA"
+}
+]
