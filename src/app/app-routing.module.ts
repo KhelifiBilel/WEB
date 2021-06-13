@@ -14,12 +14,11 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 const routes: Routes = [
   { path: '', component: SignComponent},
 //  { path: 'sign', component: SignComponent},
- // { path: 'signup' , component: SignupComponent},
   { path: 'home', component: HomeComponent},
   {
     path: 'profile',component: ProfileComponent,
     children: [
-     // {path: '', component: TimelineComponent},
+    //  {path: '', component: TimelineComponent},
       {path: 'timeline' , component: TimelineComponent},
       {path: 'photos' , component: PhotosComponent},
       {path: 'friends', component: FriendsComponent}

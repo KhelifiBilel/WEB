@@ -54,21 +54,20 @@ export class SignComponent implements OnInit {
               this.name+"&password="+this.pass;
 
 this._usersService._url=this.url;
-this._usersService.getUser().subscribe(data =>this.u=data); 
-
-
-
+this._usersService.getUser();
     }
 //SIGN UP
     email:string;
     username:string; //DATA ENTREE
     pwd:string;    pwdd:string;  //DATA ENTREE
     not_valide=false;
+
   Register(reg:NgForm){
     if (this.pwd!==this.pwdd){this.not_valide=true;}
     else{
-    this._usersService.signup(this.email,this.username,this.pwd);
-    this.not_valide=false;}
+      this.not_valide=false;
+      this._usersService.signup(this.email,this.username,this.pwd);
+    }
     
   }
   }

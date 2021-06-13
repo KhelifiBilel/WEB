@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthentLogService } from './services/authent-log.service';
+import { LoginInterceptorProvider } from './Interceptor';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { AuthentLogService } from './services/authent-log.service';
         FormsModule,
         HttpClientModule,
     ],
-  providers: [AuthentLogService],
+  providers: [AuthentLogService,LoginInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

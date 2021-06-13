@@ -25,7 +25,8 @@ export class FriendsComponent implements OnInit {
     return(Following.filter(x => x.username === follower.username)[0] );
   }
   deleteElement(username: string, FollowingData: Follow[] ){
-    this.interact.FollowingData.splice(this.interact.FollowingData.findIndex(x => x.username==username),1);
+    this.interact.FollowingData.splice
+    (this.interact.FollowingData.findIndex(x => x.username==username),1);
   }
 
   ngOnInit(): void { }

@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 //import { userInfo } from 'node:os';
 import { Observable } from 'rxjs';
 import { User } from '../User';
-import {Iusers} from "../Iusers";
 import { Router } from '@angular/router';
 
 @Injectable(
@@ -16,6 +15,9 @@ export class AuthentLogService {
  exist() {
    
    this.access=true;
+   let user_hash=this.u.user_hash;
+   let secret_hash=this.u.secret_hash;
+   localStorage.setItem('token',user_hash+"-"+secret_hash);
     this.router.navigate(['/home']);
                     }
  invalid(){
@@ -28,26 +30,33 @@ signup(email,name,pwd){
   this.email=email;
   this.name=name;
   this.pwd=pwd;
-
-  this.http.get(    
-    "http://guinea-pig.ddns.net:5000/api/add/user?"+
-    "username="+this.name+"&password="+this.pwd+"&email="+this.email).subscribe();
-    alert(this.name  +" : Your are registred");
+   
+  let request= "http://guinea-pig.ddns.net:5000/api/add/user?"+
+             "username="+this.name+"&password="+this.pwd+"&email="+this.email;
+  let response;
+    this.http.get(request).subscribe(data=>{
+    response=data;
+      if (response.success)alert(this.name+" : Welcome to our network");
+      else alert("Error : "+response.error);
+    })
+      
 }
-   getuser():User{return this.u}//pour oussema
+   getuser():User{return this.u}
 
    public _url:string="";
                      
   u;  
   constructor(private http:HttpClient,private router:Router) {}
-    getUser():Observable<User>   {
-this.http.get(this._url).toPromise().then(data=>{
-  this.u=data;
-  if (this.u.success){ this.exist();}
-  else  this.invalid();
+   
+  getUser(){
+   this.http.get(this._url).toPromise().then(data=>{
+    this.u=data;
+    if (this.u.success) this.exist();
+    else {this.invalid();}
   
   })  
-            return this.http.get<User>(this._url);
+         
 
 }
+
 }  
